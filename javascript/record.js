@@ -7,8 +7,8 @@ function startRecording() {
   ctx.fillStyle = "black";
   ctx.fillText("Recording...", 10, 20);
 
-  // Ambil stream dari canvas
-  const stream = canvas.captureStream(30);
+  // Ambil stream dari canvas | FPS ( FRAME PER SECOND ) 30 / 60 / 90 DLL
+  const stream = canvas.captureStream(90);
 
   let mimeType = "video/webm;codecs=vp9";
   if (!MediaRecorder.isTypeSupported(mimeType)) {
@@ -31,7 +31,7 @@ function startRecording() {
     console.log("Blob size:", blob.size, "bytes");
 
     if (blob.size === 0) {
-      alert("⚠️ File kosong! Jangan langsung stop, tunggu minimal 2–3 detik.");
+      alert("⚠️ File kosong! Jangan langsung stop, tunggu minimal 2-3 detik.");
       return;
     }
 
@@ -45,7 +45,8 @@ function startRecording() {
 
   // delay 1 frame supaya stream udah aktif
   requestAnimationFrame(() => {
-    recorder.start(1000); // flush tiap 1 detik
+    recorder.start(200); // flush tiap 1 detik
+    // → Lebih realtime, file lebih smooth, beban memori lebih seimbang. 500 / 200
     console.log("Recording started (after first frame)...");
   });
 }
