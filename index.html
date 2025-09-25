@@ -3,12 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <title>Simulasi Batu Gunting Kertas</title>
-  <script src="./style/tailwind.css"></script>
+  <meta name="description" content="RPS? but you can still modificate yourself">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style/tailwind.css">
 </head>
 <body class="flex flex-col h-screen bg-gray-100 text-gray-800">
   <div class="p-4 flex gap-3">
-    <button id="btnStart" class="bg-blue-500 text-white rounded px-4 py-1">▶ Start</button>
-    <button id="btnStop" class="bg-red-500 text-white rounded px-4 py-1">■ Stop</button>
+    <button id="btnStart" class="bg-blue-600 hover:bg-blue-800 text-white rounded px-4 py-1">
+      ▶ Start
+    </button>
+    <button id="btnStop" class="bg-red-600 hover:bg-red-800 text-white rounded px-4 py-1">
+      ■ Stop
+    </button>
     <label class="flex items-center gap-2 text-sm">
       <input type="checkbox" id="chkRecord" checked> Rekam
     </label>
