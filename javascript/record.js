@@ -1,3 +1,8 @@
+function getDateString() {
+  const d = new Date();
+  return d.toLocaleDateString("id-ID").replaceAll("/", "-");
+}
+
 function startRecording() {
   recordedChunks = [];
 
@@ -38,7 +43,7 @@ function startRecording() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = "simulation.webm";
+    a.download = `${new Date().toISOString().replace("T"," ").replaceAll(":","-").split(".")[0]} - simulation.webm`;
     a.click();
     URL.revokeObjectURL(url);
   };
